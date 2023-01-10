@@ -124,20 +124,20 @@ EsIndex = mylog
 
 打开apifox，在项目中选择项目设置，然后选择导入数据
 
-![image-20230110200519065](C:\Users\17297\GolandProjects\gin_mail_tmp\doc\image-20230110200519065.png)
+![image-20230110200519065](./doc/image-20230110200519065.png)
 
 
 
 选择数据格式，并导入doc中的json文件
 
 
-![image-20230110200909809](C:\Users\17297\GolandProjects\gin_mail_tmp\doc\image-20230110200909809.png)
+![image-20230110200909809](./doc/image-20230110200909809.png)
 
 效果
 
-![image-20230110200925176](C:\Users\17297\GolandProjects\gin_mail_tmp\doc\image-20230110200925176.png)
+![image-20230110200925176](./doc/image-20230110200925176.png)
 
-![image-20230110195959211](C:\Users\17297\GolandProjects\gin_mail_tmp\doc\image-20230110195959211.png)
+![image-20230110195959211](./doc/image-20230110195959211.png)
 
 
 
