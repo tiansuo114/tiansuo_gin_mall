@@ -59,3 +59,4 @@ require (
 	gopkg.in/sohlich/elogrus.v7 v7.0.0
 	gorm.io/plugin/dbresolver v1.1.0
 )
+

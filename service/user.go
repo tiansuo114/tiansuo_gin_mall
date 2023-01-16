@@ -2,7 +2,6 @@ package service
 
 import (
 	"context"
-	"fmt"
 	"gin_mall_tmp/conf"
 	"gin_mall_tmp/dao"
 	"gin_mall_tmp/model"
@@ -12,7 +11,6 @@ import (
 	"gopkg.in/mail.v2"
 	"mime/multipart"
 	"strings"
-	"time"
 )
 
 type UserService struct {
@@ -270,8 +268,6 @@ func (service *ValidEmailService) Valid(ctx context.Context, token string) seria
 		claims, err := util.ParseEmailToken(token)
 		if err != nil {
 			code = e.ErrorAuthToken
-		} else if time.Now().Unix() > claims.ExpiresAt {
-			code = e.ErrorAuthCheckTokenTimeout
 		} else {
 			userId = claims.UserID
 			email = claims.Email
@@ -307,7 +303,6 @@ func (service *ValidEmailService) Valid(ctx context.Context, token string) seria
 		err = user.SetPassword(password)
 		if err != nil {
 			code = e.Error
-			fmt.Println("11111111111111111111111111111111111111111111111112")
 			return serializer.Response{
 				Status: code,
 				Msg:    e.GetMsg(code),
@@ -318,7 +313,6 @@ func (service *ValidEmailService) Valid(ctx context.Context, token string) seria
 	err = userDao.UpdateUserById(userId, user)
 	if err != nil {
 		code = e.Error
-		fmt.Println("222222222222222222222222222222222222222222223")
 		return serializer.Response{
 			Status: code,
 			Msg:    e.GetMsg(code),

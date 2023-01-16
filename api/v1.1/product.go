@@ -59,7 +59,7 @@ func DeleteProduct(c *gin.Context) {
 	deleteProductService := service.ProductService{}
 	claim, _ := util.ParseToken(c.GetHeader("Authorization"))
 	if err := c.ShouldBind(&deleteProductService); err == nil {
-		res := deleteProductService.Delete(c.Request.Context(), claim.ID,c.Param("id"))
+		res := deleteProductService.Delete(c.Request.Context(), claim.ID, c.Param("id"))
 		c.JSON(http.StatusOK, res)
 	} else {
 		c.JSON(http.StatusBadRequest, ErrorResponse(err))
@@ -73,7 +73,7 @@ func UpdateProduct(c *gin.Context) {
 	claim, _ := util.ParseToken(c.GetHeader("Authorization"))
 	createProductService := service.ProductService{}
 	if err := c.ShouldBind(&createProductService); err == nil {
-		res := createProductService.UpDate(c.Request.Context(), claim.ID,c.Param("id"), files)
+		res := createProductService.UpDate(c.Request.Context(), claim.ID, c.Param("id"), files)
 		c.JSON(http.StatusOK, res)
 	} else {
 		c.JSON(http.StatusBadRequest, ErrorResponse(err))

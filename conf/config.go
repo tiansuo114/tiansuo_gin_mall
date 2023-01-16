@@ -1,6 +1,7 @@
 package conf
 
 import (
+	"gin_mall_tmp/cache"
 	"gin_mall_tmp/dao"
 	"gopkg.in/ini.v1"
 	"strings"
@@ -47,6 +48,16 @@ func Init() {
 	// mysql 写
 	pathWrite := strings.Join([]string{DbUser, ":", DbPassword, "@tcp(", DbHost, ":", DbPort, ")/", DbName, "?charset=utf8mb4&parseTime=true"}, "")
 	dao.Database(pathRead, pathWrite)
+	RedisMessage := &cache.RedisMessage{
+		RedisDb:     RedisDb,
+		RedisAddr:   RedisAddr,
+		RedisPw:     RedisPw,
+		RedisDbName: RedisDbName,
+	}
+	err = RedisMessage.BuildRedis()
+	if err != nil {
+		panic(err)
+	}
 }
 
 func LoadServer(file *ini.File) {

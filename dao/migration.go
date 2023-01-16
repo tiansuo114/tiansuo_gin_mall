@@ -5,7 +5,7 @@ import (
 	"gin_mall_tmp/model"
 )
 
-func migration() {
+func Migration() {
 	err := _db.Set("gorm:table_options", "charset=utf8mb4").
 		AutoMigrate(&model.User{},
 			&model.Product{},
